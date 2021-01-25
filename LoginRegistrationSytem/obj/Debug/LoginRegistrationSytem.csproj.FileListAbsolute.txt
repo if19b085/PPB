@@ -1,0 +1,11 @@
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.csprojAssemblyReference.cache
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.Properties.Resources.resources
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.csproj.GenerateResource.cache
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.csproj.CoreCompileInputs.cache
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\bin\Debug\LoginRegistrationSytem.exe.config
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\bin\Debug\LoginRegistrationSytem.exe
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\bin\Debug\LoginRegistrationSytem.pdb
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.exe
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.pdb
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.frmLogin.resources
+C:\Users\ThomasPleiner\source\repos\PPB\LoginRegistrationSytem\obj\Debug\LoginRegistrationSytem.frmRegister.resources
