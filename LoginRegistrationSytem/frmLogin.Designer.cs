@@ -59,6 +59,7 @@
             this.label4.Size = new System.Drawing.Size(163, 17);
             this.label4.TabIndex = 22;
             this.label4.Text = "Already Have an Account";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnClear
             // 
@@ -86,6 +87,7 @@
             this.btnLogin.TabIndex = 20;
             this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // checkbxShowPas
             // 
@@ -107,6 +109,7 @@
             this.txtPassword.Location = new System.Drawing.Point(39, 193);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(216, 28);
             this.txtPassword.TabIndex = 16;
             // 
@@ -170,7 +173,7 @@
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";

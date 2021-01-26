@@ -33,13 +33,13 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtComPassword = new System.Windows.Forms.Label();
+            this.txtComPassword = new System.Windows.Forms.TextBox();
             this.checkbxShowPas = new System.Windows.Forms.CheckBox();
             this.btnRegister = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -85,6 +85,7 @@
             this.txtPassword.Location = new System.Drawing.Point(33, 197);
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(216, 28);
             this.txtPassword.TabIndex = 4;
             this.txtPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
@@ -99,25 +100,17 @@
             this.label3.Text = "Password";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(33, 261);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(216, 28);
-            this.textBox1.TabIndex = 6;
-            // 
             // txtComPassword
             // 
-            this.txtComPassword.AutoSize = true;
-            this.txtComPassword.Location = new System.Drawing.Point(30, 241);
+            this.txtComPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
+            this.txtComPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtComPassword.Font = new System.Drawing.Font("MS UI Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtComPassword.Location = new System.Drawing.Point(33, 261);
+            this.txtComPassword.Multiline = true;
             this.txtComPassword.Name = "txtComPassword";
-            this.txtComPassword.Size = new System.Drawing.Size(120, 17);
-            this.txtComPassword.TabIndex = 5;
-            this.txtComPassword.Text = "Confirm Password";
+            this.txtComPassword.PasswordChar = '*';
+            this.txtComPassword.Size = new System.Drawing.Size(216, 28);
+            this.txtComPassword.TabIndex = 6;
             // 
             // checkbxShowPas
             // 
@@ -130,6 +123,7 @@
             this.checkbxShowPas.TabIndex = 7;
             this.checkbxShowPas.Text = "Show Password";
             this.checkbxShowPas.UseVisualStyleBackColor = true;
+            this.checkbxShowPas.CheckedChanged += new System.EventHandler(this.checkbxShowPas_CheckedChanged);
             // 
             // btnRegister
             // 
@@ -144,6 +138,7 @@
             this.btnRegister.TabIndex = 8;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = false;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnClear
             // 
@@ -157,6 +152,7 @@
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // label4
             // 
@@ -166,6 +162,7 @@
             this.label4.Size = new System.Drawing.Size(163, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "Already Have an Account";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -176,6 +173,16 @@
             this.label5.Size = new System.Drawing.Size(97, 17);
             this.label5.TabIndex = 11;
             this.label5.Text = "Back to LOGIN";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 241);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(120, 17);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Confirm Password";
             // 
             // frmRegister
             // 
@@ -184,12 +191,12 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(285, 544);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.checkbxShowPas);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtComPassword);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.label3);
@@ -215,13 +222,13 @@
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label txtComPassword;
+        private System.Windows.Forms.TextBox txtComPassword;
         private System.Windows.Forms.CheckBox checkbxShowPas;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
