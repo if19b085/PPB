@@ -73,6 +73,7 @@
             this.btnClear.TabIndex = 21;
             this.btnClear.Text = "CLEAR";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnLogin
             // 
@@ -100,6 +101,7 @@
             this.checkbxShowPas.TabIndex = 19;
             this.checkbxShowPas.Text = "Show Password";
             this.checkbxShowPas.UseVisualStyleBackColor = true;
+            this.checkbxShowPas.CheckedChanged += new System.EventHandler(this.checkbxShowPas_CheckedChanged);
             // 
             // txtPassword
             // 

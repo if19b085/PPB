@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Add Code importing POSTGRESQL Connect
+using Npgsql;
 namespace LoginRegistrationSytem
 {
     public partial class frmLogin : Form
     {
-        //Connect to POSTGRESQL
+        NpgsqlConnection connect = new NpgsqlConnection(@"Server=localhost;port=5432;user id=postgres; password=password; database=PPB");
         public frmLogin()
         {
             InitializeComponent();
@@ -43,12 +43,47 @@ namespace LoginRegistrationSytem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Open POSTRESQL Connection
-            //Code SELECT function for Username and Password
-                //Some kind of Login Funtion needed
-            //Close POSTRESQL Connection
+            connect.Open();
+            string query = "SELECT COUNT(*) from public.users WHERE username = @username AND password = @password";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, connect);
+            cmd.Parameters.AddWithValue("username", txtUsername.Text);
+            ///!!!!!!!!!!!!!!!!!!!!PASSWORD HASHING!!!!!!!!!!!!!!!!!!!!)
+            cmd.Parameters.AddWithValue("password", txtPassword.Text);
+            int n = cmd.ExecuteNonQuery();
+            NpgsqlDataReader reader = cmd.ExecuteReader();
+            int login = 0;
+            while (reader.Read())
+            {
+                login = reader.GetInt32(0);
+            }
+            connect.Close();
+            
+            if(login == 1)
+            {
+                MessageBox.Show("You´ve been logged in successfully.", "Registration Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Login didn´t work.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            //Show Dashboard
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtUsername.Text = "";
+            txtPassword.Text = "";
+        }
+
+        private void checkbxShowPas_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkbxShowPas.Checked)
+            {
+                txtPassword.PasswordChar = '\0';
+            }
+            else
+            {
+                txtPassword.PasswordChar = '*';
+            }
         }
     }
 }

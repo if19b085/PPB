@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//Add Code importing POSTGRESQL Connect
+using Npgsql;
 
 namespace LoginRegistrationSytem
 {
     public partial class frmRegister : Form
     {
-        //Connect to POSTGRESQL
+        //Verbinden mit der POSTGRESQL Datenbank
+        NpgsqlConnection connect = new NpgsqlConnection(@"Server=localhost;port=5432;user id=postgres; password=password; database=PPB");
 
         public frmRegister()
         {
@@ -54,15 +55,28 @@ namespace LoginRegistrationSytem
             }
             else if(txtPassword.Text == txtComPassword.Text)
             {
-                //Open POSTRESQL Connection
-                //Code INSERT function for Username and Password
-                //Close POSTRESQL Connection
+                string query = "INSERT into public.users(username,password) values(@username, @password)";
+                NpgsqlCommand cmd = new NpgsqlCommand(query, connect);
+                connect.Open();
+                cmd.Parameters.AddWithValue("username", txtUsername.Text);
+                ///!!!!!!!!!!!!!!!!!!!!PASSWORD HASHING!!!!!!!!!!!!!!!!!!!!)
+                cmd.Parameters.AddWithValue("password", txtPassword.Text);
+                int n = cmd.ExecuteNonQuery();
+                connect.Close();
+                
 
                 txtUsername.Text = "";
                 txtPassword.Text = "";
                 txtComPassword.Text = "";
 
-                MessageBox.Show("Your Account has been created successfully.", "Registration Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(n == 1)
+                {
+                    MessageBox.Show("Your Account has been created successfully.", "Registration Success.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("There was a problem entering you data to the database.", "Registration Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
